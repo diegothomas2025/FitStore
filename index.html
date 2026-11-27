@@ -1,13 +1,229 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>fitstore</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.js"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="description" content="Discover quality sportswear for your training and everyday performance.">
+
+  <title>FitStore | Sportswear</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/src/css/style.css">
+
+  <!-- Main JavaScript -->
+  <script type="module" src="/src/js/main.js"></script>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    
+    <div class="container">
+      <div class="header__inner">
+
+        <a class="header__brand" href="/index.html">
+          Fit<span>Store</span>
+        </a>
+
+        <nav class="header__nav" aria-label="Main navigation">
+          <ul class="nav-list">
+            <li>
+              <a href="/index.html" aria-current="page">Home</a>
+            </li>
+            <li>
+              <a href="/src/product_listing/index.html">Products</a>
+            </li>
+            <li>
+              <a href="/src/cart/index.html">Cart</a>
+            </li>
+          </ul>
+        </nav>
+
+        <div class="header__actions">
+
+          <form class="header__search" action="/src/product_listing/index.html" method="get" role="search">
+            <label for="search-input" class="visually-hidden">
+              Search products
+            </label>
+
+            <input class="form-control" type="search" id="search-input" name="search" placeholder="Search products...">
+
+            <button class="btn btn-primary" type="submit">
+              Search
+            </button>
+          </form>
+
+          <a class="header__cart" href="/src/cart/index.html">
+            <span class="cart-count" aria-label="0 items in cart">0</span>
+            <img src="/public/images/cart.svg"  alt="Cart image">
+            
+          </a>
+
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+  <!-- MAIN CONTENT -->
+  <main>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero__content">
+
+          <div class="hero__text">
+            <p class="hero__eyebrow">MOVE WITH CONFIDENCE</p>
+
+            <h1>Train with Style</h1>
+
+            <p class="hero__description">
+              Quality sportswear designed for your training
+              and everyday performance.
+            </p>
+
+            <a class="btn btn-primary hero__button" href="/src/product_listing/index.html">
+              Shop Now
+            </a>
+          </div>
+
+          <div class="hero__image">
+            <img src="/images/hero.webp" alt="Athlete wearing sportswear during training">
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- CATEGORIES SECTION -->
+    <section class="categories section-spacing">
+      <div class="container">
+
+        <div class="section-heading">
+          <h2>Shop by Category</h2>
+          <p>Find the right gear for your training.</p>
+        </div>
+
+        <div class="row g-4">
+
+          <div class="col-6 col-md-4 col-lg-2">
+            <a class="category-card" href="/src/product_listing/index.html?category=shirts">
+              <img src="/images/tshirt.png" alt="Sports shirts">
+              <h3>Shirts</h3>
+            </a>
+          </div>
+
+          <div class="col-6 col-md-4 col-lg-2">
+            <a class="category-card" href="/src/product_listing/index.html?category=shorts">
+              <img src="/images/short.png" alt="Sports shorts">
+              <h3>Shorts</h3>
+            </a>
+          </div>
+
+          <div class="col-6 col-md-4 col-lg-2">
+            <a class="category-card" href="/src/product_listing/index.html?category=shoes">
+              <img src="/images/shoe.png" alt="Sports shoes">
+              <h3>Shoes</h3>
+            </a>
+          </div>
+
+          <div class="col-6 col-md-4 col-lg-2">
+            <a class="category-card" href="/src/product_listing/index.html?category=sweatshirts">
+              <img src="/images/hoodie.png" alt="Sports sweatshirts">
+              <h3>Sweatshirts</h3>
+            </a>
+          </div>
+
+          <div class="col-6 col-md-4 col-lg-2">
+            <a class="category-card" href="/src/product_listing/index.html?category=leggings">
+              <img src="/images/legging.png" alt="Sports leggings">
+              <h3>Leggings</h3>
+            </a>
+          </div>
+
+          <div class="col-6 col-md-4 col-lg-2">
+            <a class="category-card" href="/src/product_listing/index.html?category=accessories">
+              <img src="/images/cap.png" alt="Sports accessories">
+              <h3>Accessories</h3>
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- FEATURED PRODUCTS SECTION -->
+    <section class="featured-products section-spacing">
+      <div class="container">
+
+        <div class="section-heading">
+          <h2>Featured Products</h2>
+          <p>Discover our selection of sportswear.</p>
+        </div>
+
+        <div class="row g-4" id="featured-products" aria-live="polite">
+          <p class="text-center">
+            Loading featured products...
+          </p>
+        </div>
+
+        <div class="featured-products__action">
+          <a href="/src/product_listing/index.html" class="btn btn-outline-dark">
+            View All Products
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+
+      <div class="footer__content">
+        <a class="footer__brand" href="/index.html">
+          Fit<span>Store</span>
+        </a>
+
+        <p>
+          Quality sportswear for your best performance.
+        </p>
+
+        <nav aria-label="Footer navigation">
+          <ul class="footer__nav">
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/src/product_listing/index.html">Products</a></li>
+            <li><a href="/src/cart/index.html">Cart</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="footer__bottom">
+        <p>&copy; 2026 FitStore. All Rights Reserved.</p>
+      </div>
+
+    </div>
+  </footer>
+
+</body>
+
 </html>
